@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='gemdqm',
-    version="0.0.1",
+    version="0.0.2",
     description="Utilities for GEM DQM",
     author="Seungjin Yang",
     author_email="seungjin.yang@cern.ch",
