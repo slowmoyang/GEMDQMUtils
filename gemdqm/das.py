@@ -7,7 +7,7 @@ import os
 def run_dasgoclient(query: str,
                     executable: str = '/cvmfs/cms.cern.ch/common/dasgoclient'
 ) -> list[str]:
-    if os.path.exists(executable):
+    if not os.path.exists(executable):
         raise RuntimeError(f'{executable} not found')
 
     args = [
