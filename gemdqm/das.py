@@ -2,10 +2,16 @@ import subprocess
 from subprocess import PIPE
 import shlex
 import warnings
+import os
 
-def run_dasgoclient(query: str) -> list[str]:
+def run_dasgoclient(query: str,
+                    executable: str = '/cvmfs/cms.cern.ch/common/dasgoclient'
+) -> list[str]:
+    if os.path.exists(executable):
+        raise RuntimeError(f'{executable} not found')
+
     args = [
-        '/cvmfs/cms.cern.ch/common/dasgoclient',
+        executable,
         '-limit',
         '0',
         '-query',
